@@ -58,16 +58,17 @@ import { featuredCaseStudy, projects } from '@/data/projects'
       </article>
     </div>
 
-    <!-- Demos in active development -->
+    <!-- Public demo projects -->
     <div v-reveal class="mt-24 flex items-baseline gap-4">
       <h3 class="font-display text-2xl font-medium tracking-tight text-ink dark:text-white">
-        Demos in active development
+        Demo projects
       </h3>
       <span aria-hidden="true" class="h-px flex-1 self-center bg-ink/10 dark:bg-white/10"></span>
     </div>
     <p v-reveal class="mt-3 max-w-2xl text-stone-600 dark:text-stone-400">
       Public versions of the same kinds of systems, built so you can click around and see how they
-      work before we ever talk.
+      work before we ever talk. The first demo is live now, and the other two are in active
+      development.
     </p>
     <div class="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-3">
       <ProjectCard

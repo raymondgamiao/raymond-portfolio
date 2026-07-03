@@ -30,9 +30,9 @@ export const projects = [
     title: 'Small Business Reporting Dashboard with AI Summaries',
     description:
       'A reporting dashboard built on realistic sample business data. Every chart comes with a plain-language summary of what changed, why it matters, and what to look at next, so nobody has to squint at graphs to get the story.',
-    status: 'Demo launching soon',
-    demoUrl: null,
-    repoUrl: null,
+    status: 'Live',
+    demoUrl: 'https://alderwood-dashboard.vercel.app/',
+    repoUrl: 'https://github.com/raymondgamiao/alderwood-dashboard',
   },
   {
     title: 'Document and Email Processing Automation',
