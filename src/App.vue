@@ -1,4 +1,5 @@
 <script setup>
+import { Analytics } from '@vercel/analytics/vue'
 import NavBar from '@/components/NavBar.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 
@@ -8,6 +9,7 @@ const grain =
 </script>
 
 <template>
+  <Analytics />
   <div class="flex min-h-screen flex-col">
     <div
       aria-hidden="true"
