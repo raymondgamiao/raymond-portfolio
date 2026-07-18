@@ -31,10 +31,10 @@ export const projects = [
     title: 'Document and Email Processing',
     description:
       'Emails and attachments become clean structured data with no manual retyping.',
-    status: 'Demo launching soon',
+    status: 'Live',
     image: docPipelineCover,
     imageAlt: 'Cover illustration for the document and email processing demo',
-    demoUrl: null,
-    repoUrl: null,
+    demoUrl: 'https://doc-pipeline-five.vercel.app/',
+    repoUrl: 'https://github.com/raymondgamiao/doc-pipeline',
   },
 ]
