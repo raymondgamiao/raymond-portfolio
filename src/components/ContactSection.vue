@@ -37,13 +37,13 @@ const fieldClasses =
 <template>
   <section id="contact" class="mx-auto max-w-6xl px-6 py-28 sm:px-10 sm:py-36">
     <SectionHeading
-      number="05"
+      number="04"
       label="contact"
       title="Tell me about the workflow that's eating your time"
     />
     <p v-reveal class="mt-6 max-w-xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
-      Describe the task your team repeats every day or every week. I'll reply with an honest take
-      on whether automation can fix it, and a free scoping call if it can.
+      Describe what your team repeats every week and I will give you an honest take on whether
+      automation can fix it.
     </p>
 
     <div class="mt-16 grid gap-16 md:grid-cols-5">

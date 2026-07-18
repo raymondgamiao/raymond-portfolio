@@ -68,7 +68,8 @@ Work through every item below. Each one is also marked with a comment in the cod
 
 ## Roadmap
 
-- [ ] **Personality redesign.** The current site reads as too text-heavy and impersonal. Direction, with https://www.bryllim.com/ as the reference: the landing page centers on Raymond's face or at least his name, with social links immediately visible; project cards lead with an image and a brief description instead of paragraphs; overall much less copy.
+- [x] **Personality redesign.** Shipped: centered hero with a portrait slot, name centerpiece, and social icon row; image-led project cards with one-sentence descriptions; services folded into About; skills as chips; sections renumbered 01 to 04.
+- [ ] **Portrait photo.** Drop the real photo at `src/assets/portrait.jpg` (or .jpeg/.png/.webp). The hero shows an RG monogram until the file exists, then swaps automatically on the next build.
 - [ ] **Ship the AI Support Ticket Triage Bot demo.** Public, clickable, linked from the projects grid.
 - [ ] **Ship the Document and Email Processing Automation demo.** Same treatment.
 - [ ] **Fourth major showcase project.** One more substantial public project that demonstrates the full skill set. Scope to be defined.
@@ -77,7 +78,8 @@ Work through every item below. Each one is also marked with a comment in the cod
 ## Project structure
 
 - `src/data/` holds all editable content: projects and case study, skills, certifications, and site-wide links. Most content updates never touch a component.
-- `src/components/` holds the section components: NavBar, HeroSection, AboutSection, ServicesSection, CaseStudiesSection, ProjectCard, SkillsSection, ContactSection, SiteFooter, plus the shared SectionHeading used by every numbered section.
+- `src/components/` holds the section components: NavBar, HeroSection, AboutSection (includes the services strip), CaseStudiesSection, ProjectCard, SkillsSection, ContactSection, SiteFooter, plus the shared SectionHeading used by every numbered section.
+- `src/assets/projects/` holds the project card images (1200x750 webp), imported from `src/data/projects.js`.
 - Typography is Fraunces (serif, headlines) and Instrument Sans (body), self-hosted via @fontsource. Theme colors and easing live in the `@theme` block in `src/assets/main.css`.
 - `src/views/` holds the two routed pages: HomeView (the one-page site) and CertificationsView.
 - `src/stores/theme.js` manages the light/dark toggle. The hero section stays dark in both themes on purpose.

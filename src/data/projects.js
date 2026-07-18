@@ -2,28 +2,38 @@
 // To take a demo live, fill in demoUrl and repoUrl on the matching
 // project below and the buttons will appear automatically.
 
+import triageBotCover from '@/assets/projects/triage-bot.webp'
+import alderwoodCover from '@/assets/projects/alderwood.webp'
+import docPipelineCover from '@/assets/projects/doc-pipeline.webp'
+
 export const projects = [
   {
     title: 'AI Support Ticket Triage Bot',
     description:
-      'A live demo of automated support triage. Incoming requests get classified by topic and urgency, routed to the right queue, and paired with a suggested first response, so a small team can keep up with a busy inbox.',
+      'Incoming support requests get classified, routed, and paired with a suggested first reply.',
     status: 'Demo launching soon',
+    image: triageBotCover,
+    imageAlt: 'Cover illustration for the AI support ticket triage demo',
     demoUrl: null,
     repoUrl: null,
   },
   {
-    title: 'Small Business Reporting Dashboard with AI Summaries',
+    title: 'Alderwood Reporting Dashboard',
     description:
-      'A reporting dashboard built on realistic sample business data. Every chart comes with a plain-language summary of what changed, why it matters, and what to look at next, so nobody has to squint at graphs to get the story.',
+      'A live dashboard where every chart explains itself in plain language.',
     status: 'Live',
+    image: alderwoodCover,
+    imageAlt: 'Screenshot of the Alderwood reporting dashboard with KPI tiles and charts',
     demoUrl: 'https://alderwood-dashboard.vercel.app/',
     repoUrl: 'https://github.com/raymondgamiao/alderwood-dashboard',
   },
   {
-    title: 'Document and Email Processing Automation',
+    title: 'Document and Email Processing',
     description:
-      'A pipeline demo that reads incoming emails and attachments, pulls out the key details, and files clean structured data where it belongs. It shows how much manual retyping and forwarding a small team can simply stop doing.',
+      'Emails and attachments become clean structured data with no manual retyping.',
     status: 'Demo launching soon',
+    image: docPipelineCover,
+    imageAlt: 'Cover illustration for the document and email processing demo',
     demoUrl: null,
     repoUrl: null,
   },

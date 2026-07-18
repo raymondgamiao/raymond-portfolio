@@ -3,7 +3,6 @@ const year = new Date().getFullYear()
 
 const footerLinks = [
   { label: 'About', to: { path: '/', hash: '#about' } },
-  { label: 'Services', to: { path: '/', hash: '#services' } },
   { label: 'Work', to: { path: '/', hash: '#work' } },
   { label: 'Contact', to: { path: '/', hash: '#contact' } },
   { label: 'Certifications', to: '/certifications' },

@@ -5,24 +5,21 @@ import { skillGroups } from '@/data/skills'
 
 <template>
   <section id="skills" class="bg-paper-soft transition-colors dark:bg-night-soft">
-    <div class="mx-auto max-w-6xl px-6 py-28 sm:px-10 sm:py-36">
-      <SectionHeading number="04" label="skills" title="The toolkit behind the automations" />
+    <div class="mx-auto max-w-6xl px-6 py-20 sm:px-10 sm:py-24">
+      <SectionHeading number="03" label="skills" title="The toolkit behind the automations" />
 
-      <div class="mt-16 grid gap-16 md:grid-cols-2">
+      <div class="mt-12 space-y-10">
         <div v-for="(group, groupIndex) in skillGroups" :key="group.title" v-reveal="groupIndex * 120">
-          <h3 class="font-display text-2xl font-medium tracking-tight text-ink dark:text-white">
+          <h3 class="font-display text-lg font-medium italic text-stone-500 dark:text-stone-400">
             {{ group.title }}
           </h3>
-          <ul class="mt-6">
+          <ul class="mt-4 flex flex-wrap gap-2">
             <li
-              v-for="(skill, index) in group.skills"
+              v-for="skill in group.skills"
               :key="skill"
-              class="flex items-baseline gap-4 border-t border-ink/10 py-3.5 dark:border-white/10"
+              class="rounded-full border border-ink/15 px-3.5 py-1.5 text-sm font-medium text-stone-700 dark:border-white/15 dark:text-stone-300"
             >
-              <span class="w-7 shrink-0 text-xs tracking-wide text-stone-400 tabular-nums dark:text-stone-600">
-                {{ String(index + 1).padStart(2, '0') }}
-              </span>
-              <span class="font-medium text-stone-700 dark:text-stone-300">{{ skill }}</span>
+              {{ skill }}
             </li>
           </ul>
         </div>

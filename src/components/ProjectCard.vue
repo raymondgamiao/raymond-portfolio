@@ -10,16 +10,44 @@ defineProps({
 </script>
 
 <template>
-  <article class="group flex flex-col border-t-2 border-ink/15 pt-6 transition-colors duration-500 hover:border-accent dark:border-white/15 dark:hover:border-accent">
-    <h3 class="font-display text-xl font-medium tracking-tight text-ink dark:text-white">
+  <article class="group flex flex-col">
+    <component
+      :is="project.demoUrl ? 'a' : 'div'"
+      :href="project.demoUrl || undefined"
+      :target="project.demoUrl ? '_blank' : undefined"
+      :rel="project.demoUrl ? 'noopener' : undefined"
+      class="relative block overflow-hidden rounded-xl border border-ink/10 dark:border-white/10"
+    >
+      <img
+        :src="project.image"
+        :alt="project.imageAlt"
+        width="1200"
+        height="750"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[8/5] w-full object-cover transition-transform duration-700 ease-lux group-hover:scale-[1.04]"
+      />
+      <p
+        v-if="!project.demoUrl && !project.repoUrl"
+        class="absolute bottom-3 left-3 flex items-center gap-2.5 rounded-full bg-night/80 px-4 py-1.5 text-sm text-stone-200 backdrop-blur"
+      >
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+        </span>
+        <span class="font-display italic">{{ project.status }}</span>
+      </p>
+    </component>
+
+    <h3 class="mt-5 font-display text-xl font-medium tracking-tight text-ink dark:text-white">
       {{ project.title }}
     </h3>
-    <p class="mt-3 flex-1 leading-relaxed text-stone-600 dark:text-stone-400">
+    <p class="mt-2 flex-1 leading-relaxed text-stone-600 dark:text-stone-400">
       {{ project.description }}
     </p>
 
     <!-- Buttons appear automatically once demoUrl or repoUrl is set in src/data/projects.js -->
-    <div v-if="project.demoUrl || project.repoUrl" class="mt-6 flex flex-wrap gap-3">
+    <div v-if="project.demoUrl || project.repoUrl" class="mt-5 flex flex-wrap gap-3">
       <a
         v-if="project.demoUrl"
         :href="project.demoUrl"
@@ -41,12 +69,5 @@ defineProps({
         View Code
       </a>
     </div>
-    <p v-else class="mt-6 flex items-center gap-2.5 text-sm text-stone-500 dark:text-stone-400">
-      <span class="relative flex h-2 w-2">
-        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
-      </span>
-      <span class="font-display italic">{{ project.status }}</span>
-    </p>
   </article>
 </template>

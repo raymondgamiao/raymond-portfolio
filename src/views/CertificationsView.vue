@@ -17,7 +17,7 @@ import { certifications } from '@/data/certifications'
     </RouterLink>
 
     <div v-reveal class="flex items-baseline gap-4">
-      <span class="text-sm font-medium tracking-wide text-accent">06</span>
+      <span class="text-sm font-medium tracking-wide text-accent">05</span>
       <span class="font-display text-lg italic text-stone-500 dark:text-stone-400">credentials</span>
       <span aria-hidden="true" class="h-px flex-1 self-center bg-ink/10 dark:bg-white/10"></span>
     </div>

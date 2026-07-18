@@ -9,7 +9,6 @@ const menuOpen = ref(false)
 
 const sectionLinks = [
   { label: 'About', hash: '#about' },
-  { label: 'Services', hash: '#services' },
   { label: 'Work', hash: '#work' },
   { label: 'Skills', hash: '#skills' },
   { label: 'Contact', hash: '#contact' },
