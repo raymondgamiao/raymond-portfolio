@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { Sun, Moon, Menu, X } from 'lucide-vue-next'
 import { useThemeStore } from '@/stores/theme'
+import { resumeAvailable } from '@/data/site'
 
 const theme = useThemeStore()
 const menuOpen = ref(false)
@@ -47,8 +48,8 @@ function closeMenu() {
         >
           Certifications
         </RouterLink>
-        <!-- Drop resume.pdf into the public folder so this link works. -->
         <a
+          v-if="resumeAvailable"
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
@@ -101,6 +102,7 @@ function closeMenu() {
           Certifications
         </RouterLink>
         <a
+          v-if="resumeAvailable"
           href="/resume.pdf"
           target="_blank"
           rel="noopener"

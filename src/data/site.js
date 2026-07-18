@@ -1,12 +1,13 @@
 // Site-wide contact and social links.
-// PLACEHOLDERS: replace every value below with your real links before going live.
 
 export const socialLinks = {
-  github: 'https://github.com/your-username',
-  linkedin: 'https://www.linkedin.com/in/your-profile',
-  email: 'hello@example.com',
+  github: 'https://github.com/raymondgamiao',
+  linkedin: 'https://www.linkedin.com/in/raymond-gamiao-2b1213115/',
+  email: 'raymondgamiao@gmail.com',
 }
 
-// PLACEHOLDER: create a form at https://formspree.io, then replace
-// YOUR_FORM_ID with the ID Formspree gives you (it looks like "xabcdefg").
-export const formspreeId = 'YOUR_FORM_ID'
+export const formspreeId = 'mjgnwbpd'
+
+// Flip to true once resume.pdf exists in the public folder.
+// While false, the Resume links stay out of the nav so nothing 404s.
+export const resumeAvailable = false

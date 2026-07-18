@@ -40,13 +40,38 @@ No extra configuration is needed.
 
 Work through every item below. Each one is also marked with a comment in the code.
 
-- [ ] **Formspree form ID.** Create a form at https://formspree.io, then replace `YOUR_FORM_ID` in `src/data/site.js`.
-- [ ] **Social links.** Replace the GitHub URL, LinkedIn URL, and email address in `src/data/site.js`.
-- [ ] **Resume.** Drop your `resume.pdf` into the `public/` folder so the nav link works.
-- [ ] **Case study metrics.** Replace the `[X]` placeholders in the `results` array in `src/data/projects.js` with real Phase 1 numbers.
-- [ ] **OG image.** Add a 1200x630 `og-image.png` to the `public/` folder, and update the `og:url` meta tag in `index.html` with your real domain.
+### Content and data
+
+- [x] **Formspree form ID.** Set to `mjgnwbpd` in `src/data/site.js`.
+- [x] **GitHub link.** Set to https://github.com/raymondgamiao in `src/data/site.js`.
+- [x] **LinkedIn link.** Set to https://www.linkedin.com/in/raymond-gamiao-2b1213115/ in `src/data/site.js`.
+- [x] **Email.** Set to raymondgamiao@gmail.com in `src/data/site.js`.
+- [x] **Case study.** The private-deployment case study was scrapped in favor of public, clickable projects. The work section now shows only the projects grid.
+
+### Assets
+
+- [ ] **OG image.** Add a 1200x630 `og-image.png` to the `public/` folder. It does not exist yet.
 - [ ] **Favicon.** `public/favicon.svg` is a simple "RG" placeholder. Replace it with your own logo if you have one.
-- [ ] **Demo links (later).** When a demo goes live, set `demoUrl` and `repoUrl` on the matching project in `src/data/projects.js`. The buttons appear automatically and the "Demo launching soon" badge disappears.
+
+### Meta tags and deployment
+
+- [x] **og:url.** Set to https://mondi.vercel.app in `index.html`.
+- [x] **Absolute image URLs.** `og:image` and `twitter:image` in `index.html` point to https://mondi.vercel.app/og-image.png. The image file itself still needs to be created (see Assets).
+- [x] **Demo links.** The reporting dashboard is live with `demoUrl` and `repoUrl` set in `src/data/projects.js`. Repeat for the triage bot and document processing demos when they launch.
+
+### Pre-launch verification
+
+- [ ] **Contact form.** Submit the form for real and confirm the error state renders when submission fails.
+- [ ] **Production build.** Run `npm run build` and click through the built site.
+- [ ] **Link preview.** Run https://mondi.vercel.app through an OG checker (for example opengraph.xyz) and confirm the card renders with the image.
+- [ ] **Deploy.** Commit, push, and confirm Vercel redeploys clean.
+
+## Roadmap
+
+- [ ] **Ship the AI Support Ticket Triage Bot demo.** Public, clickable, linked from the projects grid.
+- [ ] **Ship the Document and Email Processing Automation demo.** Same treatment.
+- [ ] **Fourth major showcase project.** One more substantial public project that demonstrates the full skill set. Scope to be defined.
+- [ ] **Updated resume.** Draft the new resume, export as `resume.pdf`, drop it into `public/`, and flip `resumeAvailable` to `true` in `src/data/site.js`. The nav hides the Resume links while it is false so nothing 404s.
 
 ## Project structure
 
