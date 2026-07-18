@@ -50,7 +50,7 @@ Work through every item below. Each one is also marked with a comment in the cod
 
 ### Assets
 
-- [ ] **OG image.** Add a 1200x630 `og-image.png` to the `public/` folder. It does not exist yet.
+- [x] **OG image.** A 1200x630 `og-image.png` lives in `public/`, designed to match the editorial brand (Fraunces, paper, brick red accent).
 - [ ] **Favicon.** `public/favicon.svg` is a simple "RG" placeholder. Replace it with your own logo if you have one.
 
 ### Meta tags and deployment
@@ -68,6 +68,7 @@ Work through every item below. Each one is also marked with a comment in the cod
 
 ## Roadmap
 
+- [ ] **Personality redesign.** The current site reads as too text-heavy and impersonal. Direction, with https://www.bryllim.com/ as the reference: the landing page centers on Raymond's face or at least his name, with social links immediately visible; project cards lead with an image and a brief description instead of paragraphs; overall much less copy.
 - [ ] **Ship the AI Support Ticket Triage Bot demo.** Public, clickable, linked from the projects grid.
 - [ ] **Ship the Document and Email Processing Automation demo.** Same treatment.
 - [ ] **Fourth major showcase project.** One more substantial public project that demonstrates the full skill set. Scope to be defined.
