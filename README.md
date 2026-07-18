@@ -69,7 +69,7 @@ Work through every item below. Each one is also marked with a comment in the cod
 ## Roadmap
 
 - [x] **Personality redesign.** Shipped: centered hero with a portrait slot, name centerpiece, and social icon row; image-led project cards with one-sentence descriptions; services folded into About; skills as chips; sections renumbered 01 to 04.
-- [ ] **Portrait photo.** Drop the real photo at `src/assets/portrait.jpg` (or .jpeg/.png/.webp). The hero shows an RG monogram until the file exists, then swaps automatically on the next build.
+- [x] **Portrait photo.** Live as `src/assets/portrait.webp`, a Watson-style warm monochrome generated from the raw photo: background and sweater crushed to the hero's night color so the face floats, with border fades so the image block is invisible. The raw source stays local as `portrait-source.jpg` (gitignored).
 - [ ] **Ship the AI Support Ticket Triage Bot demo.** Public, clickable, linked from the projects grid.
 - [ ] **Ship the Document and Email Processing Automation demo.** Same treatment.
 - [ ] **Fourth major showcase project.** One more substantial public project that demonstrates the full skill set. Scope to be defined.

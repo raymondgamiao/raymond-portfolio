@@ -29,22 +29,24 @@ const portraitUrl = Object.values(portraits)[0] ?? null
       class="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col items-center justify-center px-6 pt-28 pb-16 text-center sm:px-10"
     >
       <div v-reveal class="relative">
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 scale-125 rounded-full bg-accent/20 blur-3xl"
-        ></div>
+        <!-- The portrait's blacks match bg-night, so it floats with no frame. -->
         <img
           v-if="portraitUrl"
           :src="portraitUrl"
           alt="Portrait of Raymond Gamiao"
-          class="relative aspect-[4/5] w-44 rounded-3xl object-cover ring-1 ring-white/15 sm:w-52"
+          class="relative aspect-[4/5] w-52 object-cover sm:w-64"
         />
-        <div
-          v-else
-          class="relative flex aspect-[4/5] w-44 items-center justify-center rounded-3xl bg-gradient-to-br from-night-soft to-night ring-1 ring-white/15 sm:w-52"
-        >
-          <span class="font-display text-6xl font-medium italic text-accent">RG</span>
-        </div>
+        <template v-else>
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 scale-125 rounded-full bg-accent/20 blur-3xl"
+          ></div>
+          <div
+            class="relative flex aspect-[4/5] w-44 items-center justify-center rounded-3xl bg-gradient-to-br from-night-soft to-night ring-1 ring-white/15 sm:w-52"
+          >
+            <span class="font-display text-6xl font-medium italic text-accent">RG</span>
+          </div>
+        </template>
       </div>
 
       <p

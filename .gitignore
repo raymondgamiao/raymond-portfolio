@@ -22,3 +22,6 @@ dist-ssr
 logs
 *.log
 npm-debug.log*
+
+# Raw portrait source stays local; the site uses src/assets/portrait.webp
+portrait-source.jpg
