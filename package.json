@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cv": "node resume/build.mjs"
   },
   "dependencies": {
     "@fontsource/fraunces": "^5.2.9",

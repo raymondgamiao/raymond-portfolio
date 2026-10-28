@@ -1,6 +1,6 @@
 <script setup>
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-vue-next'
-import { socialLinks } from '@/data/site'
+import { ArrowUpRight, Download, Github, Linkedin, Mail } from 'lucide-vue-next'
+import { resumeAvailable, socialLinks } from '@/data/site'
 
 // Drop the real photo at src/assets/portrait.jpg (or .jpeg/.png/.webp) and it
 // replaces the monogram placeholder automatically on the next build.
@@ -122,6 +122,15 @@ const portraitUrl = Object.values(portraits)[0] ?? null
         >
           Let's Talk
         </RouterLink>
+        <a
+          v-if="resumeAvailable"
+          href="/resume.pdf"
+          download="Raymond-Gamiao-CV.pdf"
+          class="inline-flex w-fit items-center gap-2 px-2 py-3 font-medium text-stone-300 underline decoration-stone-600 underline-offset-8 transition-colors duration-300 hover:text-white hover:decoration-accent"
+        >
+          <Download class="h-4 w-4" :stroke-width="1.75" />
+          Download CV
+        </a>
       </div>
     </div>
   </section>

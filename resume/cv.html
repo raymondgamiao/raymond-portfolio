@@ -1,0 +1,587 @@
+<!doctype html>
+<!--
+  Source for public/resume.pdf. Edit this file, then run `npm run cv` to regenerate the PDF.
+  Anything highlighted yellow (a mark element with the todo class) is a placeholder: fill it in or delete it.
+  The build script warns while any placeholders remain.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Raymond Gamiao | CV</title>
+    <style>
+      @font-face {
+        font-family: 'Fraunces';
+        font-weight: 500;
+        src: url('../node_modules/@fontsource/fraunces/files/fraunces-latin-500-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Instrument Sans';
+        font-weight: 400;
+        src: url('../node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-400-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Instrument Sans';
+        font-weight: 500;
+        src: url('../node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-500-normal.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Instrument Sans';
+        font-weight: 600;
+        src: url('../node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-600-normal.woff2') format('woff2');
+      }
+
+      /* Same palette as the site (src/assets/main.css) */
+      :root {
+        --accent: #c0392b;
+        --paper: #fdfbf7;
+        --paper-soft: #f5efe4;
+        --ink: #211a14;
+        --body: #44403c;
+        --muted: #78716c;
+        --rule: #e7e0d4;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--body);
+        font-family: 'Instrument Sans', sans-serif;
+        font-size: 9.1pt;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+        padding: 12mm 14mm 11mm;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 5mm;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      h1 {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 30pt;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+
+      /* Drawn, not typed, so ATS text extraction reads the name without a period */
+      h1 .dot {
+        display: inline-block;
+        width: 0.16em;
+        height: 0.16em;
+        margin-left: 0.04em;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      h3.sub {
+        font-size: 8.4pt;
+        font-weight: 500;
+        color: var(--muted);
+        margin: 0 0 1.2mm;
+      }
+
+      .chips + h3.sub {
+        margin-top: 2.6mm;
+      }
+
+      .role {
+        margin-top: 2.5mm;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--accent);
+      }
+
+      .contact {
+        text-align: right;
+        font-size: 8.6pt;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .contact strong {
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .summary {
+        margin-top: 5mm;
+        font-size: 10.2pt;
+        line-height: 1.5;
+        color: var(--ink);
+      }
+
+      .columns {
+        margin-top: 5mm;
+        display: grid;
+        grid-template-columns: 1fr 58mm;
+        gap: 8mm;
+        flex: 1;
+      }
+
+      h2 {
+        font-size: 7.6pt;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 2.2mm;
+      }
+
+      section + section {
+        margin-top: 5mm;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.4mm 5mm;
+      }
+
+      .services h3,
+      .job h3,
+      .project h3 {
+        font-size: 9.6pt;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .services p {
+        margin-top: 0.4mm;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+
+      .dates {
+        font-size: 8.4pt;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .position {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+        margin-top: 2.4mm;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      /* Qstrike roles as one connected timeline to show growth in a single company */
+      .timeline {
+        margin-top: 2.4mm;
+      }
+
+      .step {
+        position: relative;
+        padding-left: 5mm;
+      }
+
+      .step + .step {
+        margin-top: 2.4mm;
+      }
+
+      .step::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1.1mm;
+        width: 2.4mm;
+        height: 2.4mm;
+        border-radius: 50%;
+        border: 1.5px solid var(--accent);
+        background: var(--paper);
+        z-index: 1;
+      }
+
+      .step:first-child::before {
+        background: var(--accent);
+      }
+
+      .step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: calc(1.2mm - 0.5px);
+        top: 3.5mm;
+        bottom: -3.5mm;
+        width: 1px;
+        background: var(--accent);
+        opacity: 0.45;
+      }
+
+      .step .position {
+        margin-top: 0;
+      }
+
+      ul.plain {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0;
+        color: var(--ink);
+      }
+
+      ul.plain li {
+        margin-top: 0.8mm;
+      }
+
+      ul.plain span {
+        color: var(--muted);
+      }
+
+      .titles {
+        margin-top: 0.6mm;
+        color: var(--muted);
+        font-size: 8.6pt;
+      }
+
+      ul {
+        margin-top: 1.6mm;
+        padding-left: 3.6mm;
+      }
+
+      li {
+        margin-top: 0.9mm;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      .project + .project,
+      .job + .job {
+        margin-top: 3mm;
+      }
+
+      .project-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+
+      .project-head a {
+        font-size: 8.4pt;
+        color: var(--accent);
+      }
+
+      .project p {
+        margin-top: 0.4mm;
+      }
+
+      aside {
+        background: var(--paper-soft);
+        border-radius: 3mm;
+        padding: 4.5mm 5mm;
+        font-size: 8.6pt;
+      }
+
+      aside section + section {
+        margin-top: 3.6mm;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm;
+      }
+
+      .chips span {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 99px;
+        padding: 0 2mm;
+        font-size: 8pt;
+        color: var(--ink);
+      }
+
+      .item + .item {
+        margin-top: 1.8mm;
+      }
+
+      .item strong {
+        display: block;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .item span {
+        color: var(--muted);
+      }
+
+      .availability strong {
+        display: block;
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 13pt;
+        line-height: 1.2;
+        color: var(--ink);
+        margin-bottom: 1mm;
+      }
+
+      mark.todo {
+        background: #fde68a;
+        color: #78350f;
+        border-radius: 1mm;
+        padding: 0 0.8mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>Raymond Gamiao<span class="dot" aria-hidden="true"></span></h1>
+          <p class="role">AI Automation and Web Developer</p>
+        </div>
+        <div class="contact">
+          <strong>raymondgamiao@gmail.com</strong><br />
+          <a href="https://mondi.vercel.app">mondi.vercel.app</a><br />
+          <a href="https://www.linkedin.com/in/raymond-gamiao-2b1213115/">linkedin.com/in/raymond-gamiao-2b1213115</a><br />
+          <a href="https://github.com/raymondgamiao">github.com/raymondgamiao</a><br />
+          Kawit, Cavite, Philippines (remote)
+        </div>
+      </header>
+
+      <p class="summary">
+        I help small businesses and lean teams stop doing repetitive work by hand. I build AI
+        automations, dashboards, and web apps that sort incoming requests, pull data out of
+        documents, and turn raw numbers into reports people actually read. By day I am a Senior
+        Software Engineer leading a data and analytics team, so I am used to working with non
+        technical stakeholders, clear handoffs, and systems that keep running after launch.
+      </p>
+
+      <div class="columns">
+        <main>
+          <section>
+            <h2>What I can do for your business</h2>
+            <div class="services">
+              <div>
+                <h3>Automate repetitive admin</h3>
+                <p>Emails and attachments get read, sorted, and turned into spreadsheet rows.</p>
+              </div>
+              <div>
+                <h3>Reporting and dashboards</h3>
+                <p>Live dashboards with plain language summaries of what changed and why.</p>
+              </div>
+              <div>
+                <h3>AI assistants and triage</h3>
+                <p>Requests get classified, routed, and paired with a drafted first reply.</p>
+              </div>
+              <div>
+                <h3>Websites and web apps</h3>
+                <p>Fast sites and internal tools, built, deployed, and maintained.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Experience</h2>
+            <div class="job">
+              <div class="job-head">
+                <h3>Qstrike Innovations Phils OPC</h3>
+                <span class="dates">Nov 2022 to present</span>
+              </div>
+              <p class="titles">Formerly QuickStrike Manufacturing Phils Inc.</p>
+
+              <div class="timeline">
+              <div class="step">
+              <div class="position">
+                <span>Senior Software Engineer and Officer in Charge, Data and Analytics</span>
+                <span class="dates">Oct 2025 to present</span>
+              </div>
+              <ul>
+                <li>
+                  Lead a five person engineering team across an internal AI platform, company
+                  analytics, and production support.
+                </li>
+                <li>
+                  Designed and built an AI system that sorts and investigates incoming support
+                  tickets. In its first three weeks, manual routing dropped 68% and tickets got a
+                  written brief in a median of three hours.
+                </li>
+                <li>
+                  Oversee an internal AI platform where staff run AI agents connected to company
+                  tools and a shared knowledge base, reporting progress directly to US executives.
+                </li>
+                <li>
+                  Automated release and team workflows with GitHub, Jira, and Slack, and still fix
+                  production issues hands on.
+                </li>
+              </ul>
+              </div>
+
+              <div class="step">
+              <div class="position">
+                <span>Software Engineer</span>
+                <span class="dates">Jan 2024 to Sep 2025</span>
+              </div>
+              <ul>
+                <li>
+                  Fixed production issues on the company's online uniform customizer, shipped
+                  features end to end, and mentored junior developers.
+                </li>
+              </ul>
+              </div>
+
+              <div class="step">
+              <div class="position">
+                <span>Associate Software Engineer</span>
+                <span class="dates">Nov 2022 to Dec 2023</span>
+              </div>
+              <ul>
+                <li>
+                  Founding member of the Data and Analytics team. Built the first analytics
+                  dashboard, now the company's multi brand reporting platform.
+                </li>
+              </ul>
+              </div>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="job-head">
+                <h3>Freelance Web Developer and Designer</h3>
+                <span class="dates">2020 to present</span>
+              </div>
+              <ul>
+                <li>
+                  Build and maintain WordPress sites and design graphics for small businesses,
+                  working directly with owners from scoping to ongoing support.
+                </li>
+                <li>
+                  Took on graphic design, online research, and data entry projects for clients.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-head">
+                <h3>Earlier career</h3>
+                <span class="dates">2017 to 2021</span>
+              </div>
+              <ul>
+                <li>
+                  Graphic artist, photographer, and LED wall technician at Photocity, Olrak Lights
+                  and Sounds, and J-EMS Printing Services. Client facing work on tight event
+                  deadlines across Northern Luzon.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </main>
+
+        <aside>
+          <section class="availability">
+            <h2>Availability</h2>
+            <strong>Part time, 10 to 20 hours a week</strong>
+            <p>
+              Weekdays 8 PM to 12 midnight Philippine time (US Eastern mornings), plus
+              weekends.
+            </p>
+          </section>
+
+          <section>
+            <h2>Skills</h2>
+            <h3 class="sub">Business tools</h3>
+            <div class="chips">
+              <span>Claude</span>
+              <span>Slack</span>
+              <span>Jira</span>
+              <span>Trello</span>
+              <span>Gmail</span>
+              <span>Google Drive</span>
+              <span>Excel</span>
+              <span>Google Analytics</span>
+              <span>Power BI</span>
+              <span>Tableau</span>
+              <span>WordPress</span>
+              <span>Figma</span>
+              <span>Photoshop</span>
+            </div>
+            <h3 class="sub">Development</h3>
+            <div class="chips">
+              <span>Vue.js</span>
+              <span>React</span>
+              <span>JavaScript</span>
+              <span>Laravel</span>
+              <span>PHP</span>
+              <span>Python</span>
+              <span>SQL</span>
+              <span>PostgreSQL</span>
+              <span>MySQL</span>
+              <span>Tailwind CSS</span>
+              <span>REST APIs</span>
+              <span>Firebase</span>
+              <span>GitHub</span>
+              <span>Vercel</span>
+              <span>LLM APIs</span>
+              <span>MCP</span>
+              <span>Prompt engineering</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Certifications</h2>
+            <ul class="plain">
+              <li>Google Advanced Data Analytics, <span>2026</span></li>
+              <li>Google Data Analytics, <span>2023</span></li>
+              <li>KodeGo Full Stack Bootcamp, <span>2022</span></li>
+              <li>freeCodeCamp JavaScript, <span>300 hours</span></li>
+              <li>TESDA Hardware Servicing NC II, <span>2015</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Education</h2>
+            <div class="item">
+              <strong>BS Information Technology (undergraduate)</strong>
+              <span>St. Paul University Philippines, 2011 to 2015</span>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+    <script>
+      // Lets resume/build.mjs detect content clipped by the fixed page box.
+      document.fonts.ready.then(() => {
+        const page = document.querySelector('.page')
+        document.body.dataset.overflow = String(page.scrollHeight - page.clientHeight)
+      })
+    </script>
+  </body>
+</html>

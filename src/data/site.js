@@ -8,6 +8,6 @@ export const socialLinks = {
 
 export const formspreeId = 'mjgnwbpd'
 
-// Flip to true once resume.pdf exists in the public folder.
-// While false, the Resume links stay out of the nav so nothing 404s.
-export const resumeAvailable = false
+// resume.pdf is generated from resume/cv.html with `npm run cv`.
+// While false, the Resume and Download CV links stay hidden so nothing 404s.
+export const resumeAvailable = true

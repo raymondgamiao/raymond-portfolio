@@ -73,7 +73,7 @@ Work through every item below. Each one is also marked with a comment in the cod
 - [ ] **Ship the AI Support Ticket Triage Bot demo.** Public, clickable, linked from the projects grid.
 - [ ] **Ship the Document and Email Processing Automation demo.** Same treatment.
 - [ ] **Fourth major showcase project.** One more substantial public project that demonstrates the full skill set. Scope to be defined.
-- [ ] **Updated resume.** Draft the new resume, export as `resume.pdf`, drop it into `public/`, and flip `resumeAvailable` to `true` in `src/data/site.js`. The nav hides the Resume links while it is false so nothing 404s.
+- [x] **Updated resume.** The one page CV source is `resume/cv.html`. Run `npm run cv` to regenerate `public/resume.pdf` (uses a local Chrome or Edge; set `CHROME_PATH` to override). Yellow highlighted text in the source is a placeholder, and the script warns while any remain. The hero's Download CV button and the nav's Resume link show while `resumeAvailable` is `true` in `src/data/site.js`.
 
 ## Project structure
 
