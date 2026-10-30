@@ -1,5 +1,6 @@
 <script setup>
 import { Analytics } from '@vercel/analytics/vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 import NavBar from '@/components/NavBar.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 
@@ -10,6 +11,7 @@ const grain =
 
 <template>
   <Analytics />
+  <SpeedInsights />
   <div class="flex min-h-screen flex-col">
     <div
       aria-hidden="true"
